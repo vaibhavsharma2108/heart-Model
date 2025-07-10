@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+
+        .footer {
+            margin-top: 50px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Heart Disease Prediction</h2>
+
+    <form action="/predict" method="post">
+        <input type="text" name="age" placeholder="Age" required>
+        <input type="text" name="sex" placeholder="Sex (1=Male, 0=Female)" required>
+        <input type="text" name="cp" placeholder="Chest Pain Type (0–3)" required>
+        <input type="text" name="trestbps" placeholder="Resting Blood Pressure" required>
+        <input type="text" name="chol" placeholder="Cholesterol (mg/dl)" required>
+        <input type="text" name="fbs" placeholder="Fasting Blood Sugar > 120 (1 or 0)" required>
+        <input type="text" name="restecg" placeholder="Rest ECG Result (0–2)" required>
+        <input type="text" name="thalach" placeholder="Max Heart Rate Achieved" required>
+        <input type="text" name="exang" placeholder="Exercise Induced Angina (1 or 0)" required>
+        <input type="text" name="oldpeak" placeholder="ST Depression" required>
+        <input type="text" name="slope" placeholder="Slope of the ST Segment" required>
+        <input type="text" name="ca" placeholder="Number of Major Vessels (0–3)" required>
+        <input type="text" name="thal" placeholder="Thal (0=Normal, 1=Fixed Defect, 2=Reversible Defect)" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+
+    <div class="footer">
+        &copy; 2025 HeartCare AI · Made with ❤️ using Flask & ML
+    </div>
+</body>
+</html>
